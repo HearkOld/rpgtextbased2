@@ -52,18 +52,16 @@ Wood_Sword = Weapon.new("Wooden Sword", 10)
 Potion = Item.new("Potion", "Heal by 25 pts", nil, 25)
 
 # Battle defines
-def monster
-  @monster = monster
-end
+selectedmonster;
 num = rand(10)
+battle == false
 #############################################################################################################################
-if gets.chomp = "walk" then
+
+print "Action?"
+if gets.chomp == "walk" then
 if num == 5 
    puts "Battle"
  else
    puts "You walk."
+   end
  end
-end
-
-
- 
