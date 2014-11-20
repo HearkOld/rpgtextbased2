@@ -1,23 +1,47 @@
-# Scripts #
-print "What is your name?"
-Name = gets.chomp
-
-
+# Defining Players & Enemies
 class Player
- def initialize(nombre, hp, attack, defense, weapon)
-  @name = '#{Name}'
-  @hp = @hp
-  @attack = @attack
-  @defense = @defemse
-  @weapon = @weapon
-      if Player.hp  == 0
-  puts "#{Name} is dead!"
-else
-  puts "#{Name} is wounded but can still fight!"
+  attr_accessor :hp; :attack; :defense; :weapon;
+  def initialize(hp, attack, defense, weapon)
+    @hp = hp
+    @attack = attack
+    @defense = defense
+    @weapon = weapon
+  end
 end
-randy = rand(100)
-health = Player.hp - randy
-puts "#{Name} 's hp is #{Health}"
+
+class Enemy
+  attr_accessor :name; :hp; :attack; :defense; :weapon;
+  def initialize(name, hp, attack, defense, weapon)
+    @name = name
+    @hp = hp
+    @attack = attack
+    @defense = defense
+    @weapon = weapon
+  end
 end
-Player = Player.new('#{Name}', 100, 25, 15, "Wooden Sword")
+# = Skills
+
+# Players & Enemies
+User = Player.new(100, 25, 15, nil)
+Slime = Enemy.new("Slime", 20, 5, 5, nil)
+Bat = Enemy.new("Bat", 40, 10, 10, nil)
+#Defining Items & weapons
+class Weapon
+  attr_accessor :name; :damage;
+  def initialize(name, damage)
+  @name = name
+  @damage = damage
+  end
 end
+
+class Item
+  attr_accessor :name; :description; :damage; :effect;
+  def initialize(name, description, damage, effect)
+  @name = name
+  @description = description
+  @damage = damage
+  @effect = effect
+  end
+end
+
+# Items & weapons
