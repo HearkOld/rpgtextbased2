@@ -1,14 +1,23 @@
-class Grunty < Enemy
- def initialize(hp,attack, defense, weapon)
-    super(hp, attack, defense)
-    @weapon = "AK47"
-    @hp =100
-    if Grunto.hp  == 0
-  puts "Grunty is dead!"
+# Scripts #
+print "What is your name?"
+Name = gets.chomp
+
+
+class Player
+ def initialize(nombre, hp, attack, defense, weapon)
+  @name = '#{Name}'
+  @hp = @hp
+  @attack = @attack
+  @defense = @defemse
+  @weapon = @weapon
+      if Player.hp  == 0
+  puts "#{Name} is dead!"
 else
-  puts "Grunty is wounded but can still fight!"
+  puts "#{Name} is wounded but can still fight!"
 end
 randy = rand(100)
-health = Grunto.hp - randy
-puts "Grunty's hp is #{Health}"
+health = Player.hp - randy
+puts "#{Name} 's hp is #{Health}"
+end
+Player = Player.new('#{Name}', 100, 25, 15, "Wooden Sword")
 end
