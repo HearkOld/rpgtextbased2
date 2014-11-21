@@ -25,6 +25,18 @@ class Enemy
   end
 end
 # = Skills
+skills = [];
+class Skill
+  attr_accessor :name; :description; :damage; :effect;
+  def initialize(name, description, damage, effect)
+    @name = name
+    @description = description
+    @damage = damage
+    @effect = effect
+  end
+end
+
+Super_Punch = Skill.new("Super Punch", "Punch 1 enemy", 25, nil)
 
 # Players & Enemies
 User = Player.new(100, 25, 15, nil)
@@ -58,7 +70,10 @@ Potion = Item.new("Potion", "Heal by 25 pts", nil, 25)
 
 # Battle defines
 selectedmonster = nil
-num == rand(10)
+selectedskill = nil
+num = rand(10); rand(10); defined?(num)
+playerturn == 0; defined?(playerturn)
+
 #############################################################################################################################
 if User.hp <= 0 then
     puts "Player died!"
@@ -68,15 +83,17 @@ unless 5 > num then
 else 
     selectedmonster = Bat
 end
-playerturn == 1
-enemyturn == 0
+
 puts "#{selectedmonster.name} Appeared!"
 if playerturn == 1 then
 print "Action?"
-if gets.chomp == "Punch" or "punch" then
-    puts "#{name} used Punch!"
-    playerturn == 0
-    enemyturn == 1
-end
+if gets.chomp == "Attack" or "attack" then
+    print "What Attack?"
+    if gets.chomp = "Super Punch" or "super punch" or "superpunch" && skills.include?('Super Punch') then
+      puts "#{name} used super punch!"
+  else 
+    puts "You don't have this skill!"
+  end
+ end
 end
     
