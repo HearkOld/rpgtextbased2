@@ -1,6 +1,8 @@
 ############################################################## DEFINING #################################################################
 ###################################################################################################################################
 # Defining Players & Enemies
+print "Name?"
+name = gets.chomp
 class Player
   attr_accessor :hp; :attack; :defense; :weapon;
   def initialize(hp, attack, defense, weapon)
@@ -52,16 +54,26 @@ Wood_Sword = Weapon.new("Wooden Sword", 10)
 Potion = Item.new("Potion", "Heal by 25 pts", nil, 25)
 
 # Battle defines
-selectedmonster;
-num = rand(10)
-battle == false
+selectedmonster = nil
+num == rand(10)
 #############################################################################################################################
-
+if User.hp <= 0 then
+    puts "Player died!"
+end
+unless 5 > num then
+    selectedmonster = Slime
+else 
+    selectedmonster = Bat
+end
+playerturn == 1
+enemyturn == 0
+puts "#{selectedmonster.name} Appeared!"
+if playerturn == 1 then
 print "Action?"
-if gets.chomp == "walk" then
-if num == 5 
-   puts "Battle"
- else
-   puts "You walk."
-   end
- end
+if gets.chomp == "Punch" or "punch" then
+    puts "#{name} used Punch!"
+    playerturn == 0
+    enemyturn == 1
+end
+end
+    
