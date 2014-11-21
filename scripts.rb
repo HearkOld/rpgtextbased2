@@ -72,7 +72,7 @@ Potion = Item.new("Potion", "Heal by 25 pts", nil, 25)
 selectedmonster = nil
 selectedskill = nil
 num = rand(10); rand(10); defined?(num)
-playerturn == 0; defined?(playerturn)
+playerturn = 0; defined?(playerturn)
 
 #############################################################################################################################
 if User.hp <= 0 then
@@ -84,16 +84,3 @@ else
     selectedmonster = Bat
 end
 
-puts "#{selectedmonster.name} Appeared!"
-if playerturn == 1 then
-print "Action?"
-if gets.chomp == "Attack" or "attack" then
-    print "What Attack?"
-    if gets.chomp = "Super Punch" or "super punch" or "superpunch" && skills.include?('Super Punch') then
-      puts "#{name} used super punch!"
-  else 
-    puts "You don't have this skill!"
-  end
- end
-end
-    
