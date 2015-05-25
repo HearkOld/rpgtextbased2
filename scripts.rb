@@ -54,8 +54,9 @@ class Weapon
 end
 
 class Item
-  attr_accessor :name; :description; :damage; :effect;
-  def initialize(name, description, damage, effect)
+  attr_accessor :type; :name; :description; :damage; :effect;
+  def initialize(type, name, description, damage, effect)
+  @type = type
   @name = name
   @description = description
   @damage = damage
@@ -66,21 +67,59 @@ end
 # Items & weapons
 Wood_Sword = Weapon.new("Wooden Sword", 10)
 
-Potion = Item.new("Potion", "Heal by 25 pts", nil, 25)
+Potion = Item.new(01, "potion", "Heal by 25 pts", nil, 25)
 
-# Battle defines
-selectedmonster = nil
-selectedskill = nil
-num = rand(10); rand(10); defined?(num)
-playerturn = 0; defined?(playerturn)
+# push command
+def add_item itemName
+  @inventory = [] unless @inventory
+  @inventory << itemName.name
+  @inventory
+end
 
 #############################################################################################################################
-if User.hp <= 0 then
-    puts "Player died!"
+#Battle Globals
+battleOn = false;
+selectedmonster = nil
+selectedskill = nil
+num = rand(10); defined?(num)
+playerturn = 0; defined?(playerturn)
+#End of battle Globals
+
+print "Action?"
+action1 = gets.chomp.downcase
+if action1 == "fight" then
+    battleOn = true
 end
-unless 5 > num then
-    selectedmonster = Slime
+if action1 == "item" then
+    print "what item?"
+    usedItem = gets.chomp.lowercase
+     if @inventory.include?(usedItem) then
+       if usedItem.type == 01 then
+       User.hp =+ usedItem.effect
+        if User.hp + usedItem.effect > User.hpmax then
+        User.hp = User.hpmax
+    end
+ end
+end
 else 
-    selectedmonster = Bat
+    puts "Item is not in inventory!"
+end
+    
+       
+end
+    
+#Actual Battle
+if battleOn == true then 
+    if User.hp <= 0 then
+        puts "#{Name} died!"
+    end
+if 5 > num then
+        selectedmonster = Slime
+    else 
+        selectedmonster = Bat
+    end
+puts "#{selectedmonster.name} appeared!"
+print "Action?"
+action2 = gets.chomp.downcase
 end
 
