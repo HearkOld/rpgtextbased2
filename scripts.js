@@ -55,8 +55,8 @@
 
         player = $scope.get('Player').$new(self.name, nil, 20, 5, 5);
 
-        self.$print(player.$name());
+        document.write(player.$name());
 
-        self.$print(player['$poisoned?']());
+        document.write(player['$poisoned?']());
     })(self)
 })(Opal);
